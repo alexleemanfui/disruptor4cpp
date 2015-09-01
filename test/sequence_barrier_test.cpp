@@ -247,9 +247,6 @@ namespace disruptor4cpp
 		{
 			ring_buffer<stub_event, BUFFER_SIZE, blocking_wait_strategy, producer_type::multi,
 				count_down_latch_sequence> ring_buffer;
-//			auto seq_barrier = ring_buffer.new_barrier();
-//			no_op_event_processor<decltype(ring_buffer)> no_op_event_processor(ring_buffer, std::move(seq_barrier));
-//			ring_buffer.add_gating_sequences(std::vector<count_down_latch_sequence*> { &no_op_event_processor.get_sequence() });
 
 			testing::NiceMock<mock_event_processor_latch> event_processor1;
 			testing::NiceMock<mock_event_processor_latch> event_processor2;
