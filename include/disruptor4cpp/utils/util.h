@@ -79,7 +79,7 @@ namespace disruptor4cpp
 		constexpr static int log2(int value)
 		{
 			return value > 0
-				? ((value / 2 == 0) ? 1 : log2(value / 2) + 1)
+				? (value < 2 ? 0 : log2(value / 2) + 1)
 				: throw std::invalid_argument("value must be > 0");
 		}
 	};
